@@ -5,9 +5,9 @@
  * Return: number of characters printed
  */
 
-int _print_i(va_list val)
+int _print_i(va_list args)
 {
-int num = va_arg(val, int);
+int num = va_arg(args, int);
 int number, end = num % 10, digit, j = 1;
 int  i = 1;
 num /= 10;
