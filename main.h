@@ -14,10 +14,10 @@
  */
 typedef struct specifiers
 {
-  char *m;
-  int (*func)(va_list);
+char *m;
+int (*func)(va_list);
 }
-  hd_p;
+hd_p;
 
 
 int _putchar(char c);
