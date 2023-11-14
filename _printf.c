@@ -1,47 +1,43 @@
 #include "main.h"
 
 /**
- * _printf - printf input and specifiers
- * @format: input
- *
- * Return: len or error
+ * _print_bin - prints binary number
+ * @b: argument
+ * Return: number of characters printed
  */
-
-int _printf(const char *format, ...)
+int _print_bin(va_list b)
 {
-	va_list args;
-	unsigned int i, len = 0;
+    unsigned int n = va_arg(b, unsigned int);
 
-	va_start(args, format);
-	if (!format || (format[0] == '%' && !format[1]))
-	return (-1);
-	for (i = 0; format[i]; i++) /*runs along the string*/
-	{
-		if (format[i] == '%')
-		{
-			if (format[i + 1] == '%')
-			{
-				_putchar('%');
-				i = i + 1;
-				len++;
-			}
-			else if (handle_print(format, i + 1) != NULL)
-			{
-				len += handle_print(format, i + 1)(args);
-				i = i + 1;
-			}
-			else
-			{
-				_putchar(format[i]);
-				len++;
-			}
-		}
-		else
-		{
-			_putchar(format[i]);
-			len++;
-		}
-	}
-	va_end(args);
-	return (len);
+    if (n == 0)
+    {
+        _putchar('0');
+        return 1;
+    }
+
+    unsigned int number = n;
+    unsigned int counter = 0;
+    
+    // Count the number of bits needed to represent the binary number
+    do
+    {
+        number /= 2;
+        counter++;
+    } while (number > 0);
+
+    // Print the binary representation
+    unsigned int j = 1;
+    int c = 0;
+
+    do
+    {
+        unsigned int l = n / j;
+        _putchar(l + '0');
+        c++;
+        n -= l * j;
+        j /= 2;
+        counter--;
+    } while (counter > 0);
+
+    return c;
 }
