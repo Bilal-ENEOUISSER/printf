@@ -32,7 +32,7 @@ while (j > 0)
 {
 digit = number / j;
 _putchar(digit + '0');
-number = number - (digit * j);
+number = number - (digit *j);
 j /= 10;
 i++;
 }

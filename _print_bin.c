@@ -27,7 +27,7 @@ for (i = 1; i <= counter; i++)
 l = n / j;
 _putchar(l + '0');
 c++;
-n -= l * j;
+n -= l *j;
 j /= 2;
 }
 }
