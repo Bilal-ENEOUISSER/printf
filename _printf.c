@@ -7,9 +7,9 @@
  */
 int _printf(const char *format, ...)
 {
-va_list val;
+va_list args;
 unsigned int i, len = 0;
-va_start(val, format);
+va_start(args, format);
 if (!format || (format[0] == '%' && !format[1]))
 return (-1);
 for (i = 0; format[i]; i++) /*runs along the string*/
@@ -22,7 +22,7 @@ i = i + 1;
 len++;
 }
 else if (handle_print(format, i + 1) != NULL)
-{   len += handle_print(format, i + 1)(val);
+{   len += handle_print(format, i + 1)(args);
 i = i + 1;
 }
 else
@@ -35,6 +35,6 @@ else
 len++;
 }
 }
-va_end(val);
+va_end(args);
 return (len);
 }
