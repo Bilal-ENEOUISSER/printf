@@ -8,8 +8,9 @@ int _print_bin(va_list b)
 {
 	unsigned int counter, j, i, l, n, number;
 	int c = 0;
-	
+
 	n = va_arg(b, unsigned int);
+
 	if (n)
 	{
 		number = n;
@@ -27,7 +28,7 @@ int _print_bin(va_list b)
 			l = n / j;
 			_putchar(l + '0');
 			c++;
-			n -= l *j;
+			n -= l * j;
 			j /= 2;
 		}
 	}

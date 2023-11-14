@@ -10,7 +10,7 @@ int _print_i(va_list args)
 	int num = va_arg(args, int);
 	int number, end = num % 10, digit, j = 1;
 	int  i = 1;
-	
+
 	num /= 10;
 	number = num;
 	if (end < 0)
@@ -33,7 +33,7 @@ int _print_i(va_list args)
 		{
 			digit = number / j;
 			_putchar(digit + '0');
-			number = number - (digit *j);
+			number = number - (digit * j);
 			j /= 10;
 			i++;
 		}
