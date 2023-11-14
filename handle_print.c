@@ -14,7 +14,7 @@ hd_p prm[] = {
 {"d", _print_i},
 {"i", _print_i},
 {"b", _print_bin},
-{'\0', NULL}
+{NULL, NULL}
 };
 for (i = 0; prm[i].m != NULL; i++)
 if (prm[i].m[0] == next[position])
