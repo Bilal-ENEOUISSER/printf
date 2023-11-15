@@ -1,41 +1,43 @@
 #include "main.h"
+
 /**
  * _print_bin - prints binary number
  * @b: argument
- * Return: 0
+ * Return: number of characters printed
  */
 int _print_bin(va_list b)
 {
-	unsigned int counter, j, i, l, n, number;
-	int c = 0;
+    unsigned int n = va_arg(b, unsigned int);
 
-	n = va_arg(b, unsigned int);
+    if (n == 0)
+    {
+        _putchar('0');
+        return 1;
+    }
 
-	if (n)
-	{
-		number = n;
-		counter = 0;
-		while (number)
-		{
-			number /= 2;
-			counter++;
-		}
-		j = 1;
-		for (i = 1; i <= counter - 1; i++)
-			j *= 2;
-		for (i = 1; i <= counter; i++)
-		{
-			l = n / j;
-			_putchar(l + '0');
-			c++;
-			n -= l * j;
-			j /= 2;
-		}
-	}
-	else
-	{
-		_putchar('0');
-		return (1);
-	}
-	return (c);
+    unsigned int number = n;
+    unsigned int counter = 0;
+
+    // Count the number of bits needed to represent the binary number
+    while (number > 0)
+    {
+        number /= 2;
+        counter++;
+    }
+
+    // Print the binary representation
+    unsigned int j = 1;
+    int c = 0;
+
+    while (counter > 0)
+    {
+        unsigned int l = n / j;
+        _putchar(l + '0');
+        c++;
+        n -= l * j;
+        j /= 2;
+        counter--;
+    }
+
+    return c;
 }
