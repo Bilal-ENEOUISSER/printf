@@ -2,38 +2,38 @@
 /**
  * _print_i - print int
  * @args: print argument
- * Return: number of characters printed
+ * Return: number1 of characters printed
  */
 
 int _print_i(va_list args)
 {
-	int num = va_arg(args, int);
-	int number, end = num % 10, digit, j = 1;
+	int num1 = va_arg(args, int);
+	int number1, end = num1 % 10, digit, j = 1;
 	int  i = 1;
 
-	num /= 10;
-	number = num;
+	num1 /= 10;
+	number1 = num1;
 	if (end < 0)
 	{
 		_putchar('-');
-		number = -number;
-		num = -num;
+		number1 = -number1;
+		num1 = -num1;
 		end = -end;
 		i++;
 	}
-	if (number > 0)
+	if (number1 > 0)
 	{
-		while (number / 10 != 0)
+		while (number1 / 10 != 0)
 		{
 			j *= 10;
-			number /= 10;
+			number1 /= 10;
 		}
-		number = num;
+		number1 = num1;
 		while (j > 0)
 		{
-			digit = number / j;
+			digit = number1 / j;
 			_putchar(digit + '0');
-			number = number - (digit * j);
+			number1 = number1 - (digit * j);
 			j /= 10;
 			i++;
 		}
