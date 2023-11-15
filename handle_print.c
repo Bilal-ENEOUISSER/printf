@@ -16,10 +16,6 @@ int (*handle_print(const char *next, int position))(va_list)
 		{"d", _print_i},
 		{"i", _print_i},
 		{"b", _print_bin},
-		{"u", _print_uns},
-		{"o", _print_octal},
-		{"x", _print_hex},
-		{"X", _print_HEX},
 		{NULL, NULL}
 	};
 	for (i = 0; prm[i].m != NULL; i++)
