@@ -4,13 +4,13 @@
  * _printf - printf input and specifiers
  * @format: input
  *
- * Return: len or error
+ * Return: k or error
  */
 
 int _printf(const char *format, ...)
 {
 	va_list args;
-	unsigned int i, len = 0;
+	unsigned int i, k = 0;
 
 	va_start(args, format);
 	if (!format || (format[0] == '%' && !format[1]))
@@ -23,25 +23,25 @@ int _printf(const char *format, ...)
 			{
 				_putchar('%');
 				i = i + 1;
-				len++;
+				k++;
 			}
 			else if (handle_print(format, i + 1) != NULL)
 			{
-				len += handle_print(format, i + 1)(args);
+				k += handle_print(format, i + 1)(args);
 				i = i + 1;
 			}
 			else
 			{
 				_putchar(format[i]);
-				len++;
+				k++;
 			}
 		}
 		else
 		{
 			_putchar(format[i]);
-			len++;
+			k++;
 		}
 	}
 	va_end(args);
-	return (len);
+	return (k);
 }
