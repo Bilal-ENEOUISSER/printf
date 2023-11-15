@@ -28,5 +28,9 @@ int _print_s(va_list argument);
 int (*handle_print(const char *next, int position))(va_list);
 int _print_i(va_list val);
 int _print_bin(va_list b);
+int print_oct(va_list val);
+int print_hex_extra(unsigned long int decimalNumber);
+int print_hex(va_list val);
+int print_uns(va_list args);
 
 #endif
